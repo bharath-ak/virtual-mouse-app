@@ -177,15 +177,23 @@ class VideoProcessor(VideoProcessorBase):
 
         return av.VideoFrame.from_ndarray(mirror_img, format="bgr24")
 
-RTC_CONFIGURATION = RTCConfiguration(
-    {"iceServers": [{
-        "urls": ["stun:stun.l.google.com:19302"]
-    }]})
+rtc_config = RTCConfiguration(
+    {
+        "iceServers": [
+            {"urls": ["stun:stun.l.google.com:19302"]},
+            {
+                "urls": "turn:openrelay.metered.ca:80",
+                "username": "openrelayproject",
+                "credential": "openrelayproject"
+            }
+        ]
+    }
+)
 
 webrtc_streamer(
     key="virtual-mouse",
     mode=WebRtcMode.SENDRECV,
-    rtc_configuration=RTC_CONFIGURATION,
+    rtc_configuration=rtc_config,
     media_stream_constraints={"video": True, "audio": False},
     async_processing=True,
 )
