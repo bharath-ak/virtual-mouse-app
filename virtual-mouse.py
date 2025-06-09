@@ -193,7 +193,7 @@ rtc_configuration = RTCConfiguration(
 webrtc_streamer(
     key="virtual-mouse",
     mode=WebRtcMode.SENDRECV,
-    rtc_configuration=rtc_config,
+    rtc_configuration=rtc_configuration,
     media_stream_constraints={"video": True, "audio": False},
     async_processing=True,
 )
