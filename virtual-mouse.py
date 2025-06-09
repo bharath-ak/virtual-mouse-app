@@ -110,8 +110,7 @@ class VideoProcessor(VideoProcessorBase):
 
     def recv(self, frame):
         img = frame.to_ndarray(format="bgr24")
-        # mirror_img = cv2.flip(img, 1)
-        mirror_img = img  # Just for testing
+        mirror_img = cv2.flip(img, 1)
         frameRGB = cv2.cvtColor(mirror_img, cv2.COLOR_BGR2RGB)
         processed = self.hands.process(frameRGB)         
         landmark_list = []        
@@ -197,4 +196,5 @@ webrtc_streamer(
     rtc_configuration=rtc_configuration,
     media_stream_constraints={"video": True, "audio": False},
     async_processing=True,
+    video_processor_factory=VideoProcessor,
 )
