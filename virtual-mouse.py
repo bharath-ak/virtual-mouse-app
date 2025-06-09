@@ -177,18 +177,15 @@ class VideoProcessor(VideoProcessorBase):
 
         return av.VideoFrame.from_ndarray(mirror_img, format="bgr24")
 
-rtc_config = RTCConfiguration(
-    {
-        "iceServers": [
-            {"urls": ["stun:stun2.l.google.com:19302"]},
-        ]
-    }
-)
+RTC_CONFIGURATION = RTCConfiguration(
+    {"iceServers": [{
+        "urls": ["stun:stun.l.google.com:19302"]
+    }]})
 
 webrtc_streamer(
     key="virtual-mouse",
     mode=WebRtcMode.SENDRECV,
-    rtc_configuration=rtc_config,
+    rtc_configuration=RTC_CONFIGURATION,
     media_stream_constraints={"video": True, "audio": False},
     async_processing=True,
 )
