@@ -177,15 +177,15 @@ class VideoProcessor(VideoProcessorBase):
 
         return av.VideoFrame.from_ndarray(mirror_img, format="bgr24")
 
-rtc_config = RTCConfiguration(
+rtc_configuration = RTCConfiguration(
     {
         "iceServers": [
-            {"urls": ["stun:stun.l.google.com:19302"]},
             {
-                "urls": "turn:openrelay.metered.ca:80",
-                "username": "openrelayproject",
-                "credential": "openrelayproject"
-            }
+                "urls": [st.secrets["turn"]["url"]],
+                "username": st.secrets["turn"]["username"],
+                "credential": st.secrets["turn"]["credential"],
+            },
+            {"urls": ["stun:stun.l.google.com:19302"]},
         ]
     }
 )
