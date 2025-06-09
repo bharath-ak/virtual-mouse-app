@@ -110,7 +110,8 @@ class VideoProcessor(VideoProcessorBase):
 
     def recv(self, frame):
         img = frame.to_ndarray(format="bgr24")
-        mirror_img = cv2.flip(img, 1)
+        # mirror_img = cv2.flip(img, 1)
+        mirror_img = img  # Just for testing
         frameRGB = cv2.cvtColor(mirror_img, cv2.COLOR_BGR2RGB)
         processed = self.hands.process(frameRGB)         
         landmark_list = []        
