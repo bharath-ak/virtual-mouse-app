@@ -109,7 +109,7 @@ class VideoProcessor(VideoProcessorBase):
         )
 
     def recv(self, frame):
-        img = frame.to_ndarray(format="bgr24")
+        img = frame.to_ndarray(format='bgr24')
         mirror_img = cv2.flip(img, 1)
         frameRGB = cv2.cvtColor(mirror_img, cv2.COLOR_BGR2RGB)
         processed = self.hands.process(frameRGB)         
@@ -130,17 +130,17 @@ class VideoProcessor(VideoProcessorBase):
                 index_tip = finger_tips['index']
                 cx, cy = int(index_tip.x * w), int(index_tip.y * h)
                 cv2.circle(mirror_img, (cx, cy), 15, (0, 255, 0), cv2.FILLED)
-                cv2.putText(mirror_img, f"Pointer: ({cx}, {cy})", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+                cv2.putText(mirror_img, f'Pointer: ({cx}, {cy})', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
                 if current_mode == 'mouselc' and left_click(landmark_list):
-                    cv2.putText(mirror_img, "LEFT CLICK", (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                    cv2.putText(mirror_img, 'LEFT CLICK', (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
                 elif current_mode == 'mouserc' and right_click(landmark_list):
-                    cv2.putText(mirror_img, "RIGHT CLICK", (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+                    cv2.putText(mirror_img, 'RIGHT CLICK', (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                 elif current_mode == 'mouse' and double_click(landmark_list):
-                    cv2.putText(mirror_img, "DOUBLE CLICK", (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+                    cv2.putText(mirror_img, 'DOUBLE CLICK', (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                 elif current_mode == 'screenshot' and screen_shot(landmark_list):
                     filename = f"screenshot_{random.randint(1000, 9999)}.png"
                     cv2.imwrite(filename, mirror_img)
-                    cv2.putText(mirror_img, "SCREENSHOT", (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+                    cv2.putText(mirror_img, 'SCREENSHOT', (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                 elif current_mode == 'volume' and get_volume(landmark_list):
                     thumb_index_dist = np.clip(thumb_index_dist, 25, 50)
                     volume_level = np.interp(thumb_index_dist, [25, 50], [0.0, 1.0])
@@ -150,14 +150,10 @@ class VideoProcessor(VideoProcessorBase):
                     bar_height = 300
                     bar_width = 30
                     filled = max(0, int(bar_height * volume_level))
-                    # Outline
                     cv2.rectangle(mirror_img, (bar_x, bar_y), (bar_x + bar_width, bar_y + bar_height), (255, 255, 255), 2)
-                    # Fill
                     cv2.rectangle(mirror_img,(bar_x, bar_y + bar_height - filled), (bar_x + bar_width, bar_y + bar_height), (0, 255, 0), -1)
-                    # Display percentage
                     cv2.putText(mirror_img, f"{int(volume_level * 100)}%", (bar_x - 10, bar_y + bar_height + 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
-                    # Label
-                    cv2.putText(mirror_img, "Volume", (bar_x - 10, bar_y - 20), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
+                    cv2.putText(mirror_img, 'Volume', (bar_x - 10, bar_y - 20), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
                 elif current_mode == 'brightness' and get_brightness(landmark_list):
                     thumb_index_dist = np.clip(thumb_index_dist, 25, 50)
                     brightness_level = np.interp(thumb_index_dist, [25, 50], [0.0, 1.0])
@@ -166,35 +162,31 @@ class VideoProcessor(VideoProcessorBase):
                     bar_height = 300
                     bar_width = 30
                     filled = max(0, int(bar_height * brightness_level))
-                    # Outline
                     cv2.rectangle(mirror_img, (bar_x, bar_y), (bar_x + bar_width, bar_y + bar_height), (255, 255, 255), 2)
-                    # Fill
                     cv2.rectangle(mirror_img,(bar_x, bar_y + bar_height - filled), (bar_x + bar_width, bar_y + bar_height), (0, 255, 0), -1)
-                    # Display percentage
                     cv2.putText(mirror_img, f"{int(brightness_level * 100)}%", (bar_x - 10, bar_y + bar_height + 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
-                    # Label
-                    cv2.putText(mirror_img, "Brightness", (bar_x - 10, bar_y - 20), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
+                    cv2.putText(mirror_img, 'Brightness', (bar_x - 10, bar_y - 20), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
 
-        return av.VideoFrame.from_ndarray(mirror_img, format="bgr24")
+        return av.VideoFrame.from_ndarray(mirror_img, format='bgr24')
 
 rtc_configuration = RTCConfiguration(
     {
-        "iceServers": [
+        'iceServers': [
             {
-                "urls": [st.secrets["turn"]["url"]],
-                "username": st.secrets["turn"]["username"],
-                "credential": st.secrets["turn"]["credential"],
+                'urls': [st.secrets["turn"]["url"]],
+                'username': st.secrets["turn"]["username"],
+                'credential': st.secrets["turn"]["credential"],
             },
-            {"urls": ["stun:stun.l.google.com:19302"]},
+            {'urls': ['stun:stun.l.google.com:19302']},
         ]
     }
 )
 
 webrtc_streamer(
-    key="virtual-mouse",
+    key='virtual-mouse',
     mode=WebRtcMode.SENDRECV,
     rtc_configuration=rtc_configuration,
-    media_stream_constraints={"video": True, "audio": False},
+    media_stream_constraints={'video': True, 'audio': False},
     async_processing=True,
     video_processor_factory=VideoProcessor,
 )
