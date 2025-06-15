@@ -204,9 +204,6 @@ with st.sidebar:
     - ✨ ⬆️ (Index + Middle + Pinky) | 🤏 (Index + Thumb)  
     """)
 
-    st.markdown("---")
-    st.markdown("⚠️ **Note:** Make sure your **hand is clearly visible to the camera** at all times for accurate gesture detection. Good lighting helps! 💡")
-
 webrtc_streamer(
     key='virtual-mouse',
     mode=WebRtcMode.SENDRECV,
@@ -215,3 +212,6 @@ webrtc_streamer(
     async_processing=True,
     video_processor_factory=VideoProcessor,
 )
+
+    st.markdown("---")
+    st.markdown("⚠️ **Note:** Make sure your **hand is clearly visible to the camera** at all times for accurate gesture detection. Good lighting helps! 💡")
