@@ -190,18 +190,18 @@ with st.sidebar:
     st.header("📋 Gesture Guide")
     st.markdown("""
     **🖱️ Mouse:**
-    🟢 Left Click: ⬇️ Index | ⬆️ (Ring + Pinky)
-    🔵 Right Click: ⬇️ Middle | ⬆️ (Ring + Pinky)
-    🟨 Double Click: ⬇️ (Index + Middle) | ⬆️ (Ring + Pinky)
+    - 🟢 Left Click: ⬇️ Index | ⬆️ (Ring + Pinky)
+    - 🔵 Right Click: ⬇️ Middle | ⬆️ (Ring + Pinky)
+    - 🟨 Double Click: ⬇️ (Index + Middle) | ⬆️ (Ring + Pinky)
     
     **📸 Screenshot:**
-    ✊ All fingers closed
+    - ✊ All fingers closed
     
     **🔊 Volume:**
-    📶 ⬆️ (Index + Middle + Ring) | 🤏 (Index + Thumb) 
+    - 📶 ⬆️ (Index + Middle + Ring) | 🤏 (Index + Thumb) 
     
     **💡 Brightness:**
-    ✨ ⬆️ (Index + Middle + Pinky) | 🤏 (Index + Thumb)  
+    - ✨ ⬆️ (Index + Middle + Pinky) | 🤏 (Index + Thumb)  
     """)
 
 webrtc_streamer(
