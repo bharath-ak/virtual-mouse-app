@@ -213,5 +213,5 @@ webrtc_streamer(
     video_processor_factory=VideoProcessor,
 )
 
-    st.markdown("---")
-    st.markdown("⚠️ **Note:** Make sure your **hand is clearly visible to the camera** at all times for accurate gesture detection. Good lighting helps! 💡")
+st.markdown("---")
+st.markdown("⚠️ **Note:** Make sure your **hand is clearly visible to the camera** at all times for accurate gesture detection. Good lighting helps! 💡")
