@@ -189,20 +189,20 @@ rtc_configuration = RTCConfiguration(
 with st.sidebar:
     st.header("📋 Gesture Guide")
     st.markdown("""
-**🖱️ Mouse:**
-- 🟢 Left Click: Ring + Pinky up
-- 🔵 Right Click: Middle + Pinky up
-- 🟣 Double Click: Index + Middle curled
-
-**📸 Screenshot:**
-- 🟥 All fingers curled
-
-**🔊 Volume:**
-- 📶 Index + Middle + Ring up
-
-**💡 Brightness:**
-- 💡 Index + Middle + Pinky up
-""")
+    **🖱️ Mouse:**
+    🟢 Left Click: ⬇️ Index | ⬆️ (Ring + Pinky)
+    🔵 Right Click: ⬇️ Middle | ⬆️ (Ring + Pinky)
+    🟨 Double Click: ⬇️ (Index + Middle) | ⬆️ (Ring + Pinky)
+    
+    **📸 Screenshot:**
+    ✊ All fingers closed
+    
+    **🔊 Volume:**
+    📶 ⬆️ (Index + Middle + Ring) | 🤏 (Index + Thumb) 
+    
+    **💡 Brightness:**
+    ✨ ⬆️ (Index + Middle + Pinky) | 🤏 (Index + Thumb)  
+    """)
 
 webrtc_streamer(
     key='virtual-mouse',
