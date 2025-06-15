@@ -6,6 +6,10 @@ import av
 import streamlit as st
 from streamlit_webrtc import webrtc_streamer, WebRtcMode, RTCConfiguration, VideoProcessorBase
 
+st.set_page_config(page_title="Virtual Gesture Controller", page_icon="🖐️")
+
+st.title("🖥️ Hand Gesture Control Interface")
+
 mpHands = mp.solutions.hands
 draw = mp.solutions.drawing_utils
 
@@ -181,6 +185,24 @@ rtc_configuration = RTCConfiguration(
         ]
     }
 )
+
+with st.sidebar:
+    st.header("📋 Gesture Guide")
+    st.markdown("""
+**🖱️ Mouse:**
+- 🟢 Left Click: Ring + Pinky up
+- 🔵 Right Click: Middle + Pinky up
+- 🟣 Double Click: Index + Middle curled
+
+**📸 Screenshot:**
+- 🟥 All fingers curled
+
+**🔊 Volume:**
+- 📶 Index + Middle + Ring up
+
+**💡 Brightness:**
+- 💡 Index + Middle + Pinky up
+""")
 
 webrtc_streamer(
     key='virtual-mouse',
