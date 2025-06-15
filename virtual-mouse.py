@@ -202,10 +202,10 @@ with st.sidebar:
     
     **💡 Brightness:**
     - ✨ ⬆️ (Index + Middle + Pinky) | 🤏 (Index + Thumb)  
+    """)
 
     st.markdown("---")
     st.markdown("⚠️ **Note:** Make sure your **hand is clearly visible to the camera** at all times for accurate gesture detection. Good lighting helps! 💡")
-    """)
 
 webrtc_streamer(
     key='virtual-mouse',
