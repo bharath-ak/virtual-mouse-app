@@ -36,3 +36,9 @@ An interactive **hand gesture-based control interface** built using **Streamlit*
 - MediaPipe
 - Streamlit
 - OpenCV
+
+---
+
+## ⚠️ Note 
+- Make sure your **hand is clearly visible to the camera** at all times for accurate gesture detection. Good lighting helps! 💡  
+- Also, ensure your **camera is not mirrored or rotated**, and gestures are performed steadily for optimal recognition. ✋📷
