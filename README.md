@@ -2,6 +2,7 @@
 
 An interactive **hand gesture-based control interface** built using **Streamlit**, **MediaPipe**, and **OpenCV**. This app lets you control functions like **mouse clicks**, **volume**, **brightness**, and even take **screenshots**—all using simple hand gestures in front of your webcam.
 
+[**Try the live app here!**](https://virtual-mouse-app.streamlit.app/)
 ---
 
 ## 🚀 Features
